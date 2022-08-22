@@ -4,8 +4,7 @@ def digit_sum(x):
         answer += x % 10 
         x = x // 10
         
-    return answer
-    # return sum(map(int, str(n))) - 속도가 느리다.
+    return answer # sum(map(int, str(n))) - 속도가 느리다.
 
 #자릿수의 합이 최대인 자연수
 def sum_of_degits(n, x):
