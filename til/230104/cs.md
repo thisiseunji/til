@@ -38,12 +38,62 @@ CS지식의 정석 메모
     ```
     싱글톤 패턴의 단점 :
     * 의존성(종속성)이 높아진다.
-        > 'A가 B를 의존한다'는 말은 의존대상인 B가 변하면 그것이 A에 영향을 미친다는 뜻이다. 
+        > 'A가 B를 의존한다'는 말은 의존대상인 B가 변하면 그것이 A에 영향을 미친다는 뜻이다.
+        * 의존성 주입(Dependency Injection) : 모듈간의 결합을 느슨하게 만듦
+          * 의존성 주입의 개념
+            ```java
+            //1. Composition has a
+            class A {
+                private B b;
+
+                public A() {
+                    b = new B();
+                }
+            }
+            ```
+            ```java
+            //2. Association has a
+            class A {
+                private B b;
+
+                public A() {
+                    
+                }
+
+                public void setB(B b){
+                    this.b = b;
+                }
+            }
+            ```
+            1은 일체형, 2는 조립형인데 각각의 프로그램을 사용할 때 아래와 같이 사용할 수 있다.
+            ```java
+            A a = new A();
+            ```
+            ```java
+            B b = new B(); //<-의존성
+            A a = new A();
+
+            a.setB(b); //<-주입 
+            ```
+            a 입장에서는 b가 부품. 이 부품을 a에 꽂는다고 한다면 '주입'
+            1번의 방법을 쓰면 부품을 조립해야 한다는 단점이 있는 반면, 부품을 바꿔 끼울 수 있다는 장점이 있다.
+
+            부품을 조립하는 두 가지 방법으로
+            1. Setter Injection
+            ```java
+            B b = new B();
+            A a = new A();
+
+            a.setB(b);
+            ```
+            2. Construction Injection
+            ```java
+            B b = new B();
+            A a = new A(b);
+            ```
+            이 있다.
+
+            [출처:스프링 프레임워크 강의 3강 - DI(Dependency Injection)](https://www.youtube.com/watch?v=WjsDN_aFfyw)
 
     * TDD의 걸림돌이 된다. 
         > 단위테스트는 테스트가 서로 독립적이고, 어떤 순서로든 실행할 수 있어야 하는데, 싱글톤 패턴은 미리 생성된 하나의 인스턴스를 기반으로 구현하는 패턴이기 때문에 각 테스트 때 마다 독립적인 인스턴스를 만들기가 힘들다.
-
-* 싱글톤 패턴 구현하기 (Java)
-```java 
-
-```
