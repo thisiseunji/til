@@ -118,4 +118,5 @@ CS 메모
     * 문제점:
         - 자바는 멀티스레드 언어
         - 여러개의 스레드에서의 로직을 생각해야 한다. 
-        > T1, T2(각각이 스레드)에서 getInstance를 호출했다고 가정하면, T1에서 instance의 존재를 검증하고 instance를 할당하지 않은 채 T2에서 instance의 존재를 검증한 후, T2에서 instance생성, 이후 T1로 복귀해서 instance생성 하는 순으로 진행될 수 있다.(싱글톤 패턴 아님)
+        > T1, T2(각각이 스레드)에서 getInstance를 호출했다고 가정하면, T1에서 instance의 존재를 검증하고 instance를 할당하지 않은 채 T2에서 instance의 존재를 검증한 후, T2에서 instance생성, 이후 T1로 복귀해서 instance생성 하는 순으로 진행될 수 있다.(싱글톤 패턴이 아니게 된다.)
+      
