@@ -117,3 +117,17 @@ public class Singleton {
 > volatile 키워드는 자바 코드의 변수를 '메인 메모리에 저장'할 것을 명시하기 위해 쓰인다.(CPU캐시가 아닌 메인 메모리에 데이터를 저장) java는 다중 스레드를 처리할 때, Task를 수행하는 동안 성능 향상을 위해 Main Memory에서 읽은 변수 값을 CPU Cache에 저장한다.
 > Multi Thread환경에서 Thread가 변수 값을 읽어올 때 각각의 CPU Cache에 저장된 값이 다르기 때문에 변수 값 불일치 문제가 발생하게 된다.
 [출처 : 자바 volatile이란](https://nesoy.github.io/articles/2018-06/Java-volatile)
+
+* enum
+> Enum의 성질 : 
+> * 상수들만 모아놓은 클래스라고 할 수 있다. 때문에 클래스처럼 메소드, 생성자를 모두 가질 수 있다.
+> * enum은 고정된 상수들의 집합으로써, 런타임이 아닌 컴파일타임에 모든 값을 알고 있어야 한다. 즉, 생성자가 private로 제한된다. 런타임시에 값이 설정되면 안되기 때문이다.  때문에 enum클래스 내에서도 인스턴스 생성이 불가능하다. 때문에 사용자 입장에서 보면 인스턴스는 없지만 선언된 enum 은 존재한다.
+
+Enum은 private 생성자로 인스턴스 생성을 제어하며, 상수만 갖는 특별한 클래스이기 때문에 싱글톤의 성질을 일반적으로 갖게된다. 때문에 싱글톤을 간단히 구현할 때 사용되곤 한다.
+
+```java 
+public enum SingletonEnum {
+    INSTANCE;
+}
+```
+[[JAVA] Enum을 이용해서 Singleton을 구현하자](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=kbh3983&logNo=220907314096)
