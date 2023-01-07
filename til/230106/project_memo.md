@@ -1,1 +1,0 @@
-- nginx https 적용 완료

@@ -97,26 +97,3 @@ CS 메모
 
     * TDD의 걸림돌이 된다. 
         > 단위테스트는 테스트가 서로 독립적이고, 어떤 순서로든 실행할 수 있어야 하는데, 싱글톤 패턴은 미리 생성된 하나의 인스턴스를 기반으로 구현하는 패턴이기 때문에 각 테스트 때 마다 독립적인 인스턴스를 만들기가 힘들다.
-----
-
-* 싱글톤 패턴 구현하기(java)
-    1. 단순한 메서드 호출
-    ```java
-    public class Singleton {
-        private static Singleton instance;
-
-        private Singleton() {
-        }
-        public staic Singleton getInstance() {
-            if (instance == null) {
-                instance = new Singleton();
-            }
-            return instance;
-        }
-    }
-    ```
-    * 문제점:
-        - 자바는 멀티스레드 언어
-        - 여러개의 스레드에서의 로직을 생각해야 한다. 
-        > T1, T2(각각이 스레드)에서 getInstance를 호출했다고 가정하면, T1에서 instance의 존재를 검증하고 instance를 할당하지 않은 채 T2에서 instance의 존재를 검증한 후, T2에서 instance생성, 이후 T1로 복귀해서 instance생성 하는 순으로 진행될 수 있다.(싱글톤 패턴이 아니게 된다.)
-      
