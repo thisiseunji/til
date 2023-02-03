@@ -521,3 +521,35 @@ Date date1 = new Date(2020-1900, 2-1, 2);
 System.out.println("매개변수 생성자  : " + date1);
     
     ```
+
+```java
+//기본생성자 + setter method로 날짜를 지정
+//해도... 같다. 년도-1900, month-1 해서 넘겨줘야 원하는 값이 나온다. 
+
+		Date date2 = new Date();
+		date2.setYear(2023-1900);
+		date2.setMonth(2-1); // 인덱스인 것 같네
+		date2.setDate(2);
+		System.out.println(date2);
+// Thu Feb 02 15:50:26 KST 2023
+```
+
+### SimpleDateFormat : 날짜 형식을 지정해서 사용하고 싶을 때
+
+```java
+//"2023년 02월 02일 화요일  15시 24분 22초" 같이 
+//형식을 지정해서 날짜를 출력하고자 할 때, 
+//java.text.SimpleDateFormat클래스 사용
+
+import java.text.SimpleDateFormat;
+//1. 형식을 지정하면서 SimpleDateFormat 객체 생성
+// 2. SimpleDateFormat 객체에서 제공하는 format() 메소드 호출
+// 표현법
+//**sdf.format(Date객체) : String형**
+
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 E요일 hh시 mm분 ss초");
+**System.out.println(sdf.format(date2));
+
+//2023년 01월 02일 목요일 04시 01분 23초**
+
+```
