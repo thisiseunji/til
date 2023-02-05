@@ -3,14 +3,11 @@
 BufferedReader로 변수명을 입력받아
 NamingTest를 통해 정의한 변수명 조건에 어긋나면 에러 발생
 */ 
-package exception.run;
+package exception;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import exception.NamingException;
-import exception.NamingTest;
 
 public class NamingMain {
 
