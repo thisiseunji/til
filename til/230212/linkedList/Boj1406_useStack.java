@@ -1,5 +1,5 @@
 package linkedList;
-//시간초과 난다... 시간초과 나지 않는 방법을 찾아보자!
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
