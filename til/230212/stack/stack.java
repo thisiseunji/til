@@ -26,6 +26,5 @@ public class stack {
         pos--;
         return answer;
     }
-
 }
 
